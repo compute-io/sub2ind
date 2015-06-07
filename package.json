@@ -25,12 +25,30 @@
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "mathematics",
+    "math",
+    "util",
+    "utils",
+    "utility",
+    "utilities",
+    "sub2ind",
+    "ind2sub",
+    "subscript",
+    "index",
+    "indices",
+    "matrix",
+    "matrices",
+    "array",
+    "arrays"
   ],
   "bugs": {
     "url": "https://github.com/compute-io/sub2ind/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-matrix-like": "^1.0.2",
+    "validate.io-nonnegative-integer": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "3.x.x",
     "mocha": "2.x.x",

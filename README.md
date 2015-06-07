@@ -17,18 +17,56 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var foo = require( 'compute-sub2ind' );
+var sub2ind = require( 'compute-sub2ind' );
 ```
 
-#### foo( arr )
+#### sub2ind( x, i, j )
 
-What does this function do?
+Converts subscripts to linear indices.
+
+``` javascript
+var matrix = require( 'dstructs-matrix' );
+
+var mat = matrix( [2,2] );
+
+var idx = sub2ind( mat, 0, 0 );
+// returns 0
+
+idx = sub2ind( mat, 0, 1 );
+// returns 1
+
+idx = sub2ind( mat, 1, 0 );
+// returns 2
+
+idx = sub2ind( mat, 1, 1 );
+// returns 3
+```
+
+If provided subscripts which exceed the dimensions of the input data structure, the function returns `null`.
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'compute-sub2ind' );
+var matrix = require( 'dstructs-matrix' ),
+	sub2ind = require( 'compute-sub2ind' );
+
+var data,
+	mat,
+	idx,
+	k, i, j;
+
+data = new Int8Array( 10000 );
+mat = matrix( data, [100,100], 'int8' );
+
+idx = new Array( 100 );
+for ( k = 0; k < idx.length; k++ ) {
+	i = Math.round( Math.random()*100 );
+	j = Math.round( Math.random()*100 );
+	idx[ k ] = sub2ind( mat, i, j );
+}
+
+console.log( idx.join( '\n' ) );
 ```
 
 To run the example code from the top-level application directory,
