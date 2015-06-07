@@ -27,7 +27,14 @@ Converts subscripts to linear indices.
 ``` javascript
 var matrix = require( 'dstructs-matrix' );
 
-var mat = matrix( [2,2] );
+var mat = matrix( [3,2] );
+/*
+	Matrix     Subscripts     Indices
+
+	[ 0 0      [ a00 a01      [ 0 1
+A =   0 0   =>   a10 a11   =>   2 3
+	  0 0 ]      a20 a21 ]      4 5 ]
+*/
 
 var idx = sub2ind( mat, 0, 0 );
 // returns 0
@@ -40,6 +47,12 @@ idx = sub2ind( mat, 1, 0 );
 
 idx = sub2ind( mat, 1, 1 );
 // returns 3
+
+idx = sub2ind( mat, 2, 0 );
+// returns 4
+
+idx = sub2ind( mat, 2, 1 );
+// returns 5
 ```
 
 If provided subscripts which exceed the dimensions of the input data structure, the function returns `null`.

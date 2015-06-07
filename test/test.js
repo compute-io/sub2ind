@@ -23,7 +23,7 @@ var expect = chai.expect,
 
 describe( 'compute-sub2ind', function tests() {
 
-	var mat = matrix( [2,2] );
+	var mat = matrix( [3,2] );
 
 	it( 'should export a function', function test() {
 		expect( sub2ind ).to.be.a( 'function' );
@@ -78,6 +78,8 @@ describe( 'compute-sub2ind', function tests() {
 		assert.strictEqual( sub2ind( mat, 0, 1 ), 1 );
 		assert.strictEqual( sub2ind( mat, 1, 0 ), 2 );
 		assert.strictEqual( sub2ind( mat, 1, 1 ), 3 );
+		assert.strictEqual( sub2ind( mat, 2, 0 ), 4 );
+		assert.strictEqual( sub2ind( mat, 2, 1 ), 5 );
 	});
 
 	it( 'should return `null` if provided subscripts which exceed data structure dimensions', function test() {
