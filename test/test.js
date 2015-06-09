@@ -54,13 +54,15 @@ describe( 'compute-sub2ind', function tests() {
 	it( 'should throw an error if provided a subscript argument which is not a nonnegative integer', function test() {
 		var values = [
 			'5',
-			5,
+			-5,
+			Math.PI,
 			true,
 			undefined,
 			null,
 			NaN,
 			function(){},
-			{}
+			{},
+			[]
 		];
 
 		for ( var i = 0; i < values.length; i++ ) {

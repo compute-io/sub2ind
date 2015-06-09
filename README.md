@@ -59,7 +59,7 @@ idx = sub2ind( mat, 2, 1 );
 ## Notes
 
 *	If provided subscripts which exceed the dimensions of the input data structure, the function returns `null`.
-*	[Matrices](https://github.com/dstructs/matrix) are views on top of typed arrays. While the relation between subscripts and indices appears straightforward in the example above, this may not necessarily hold true for [Matrices](https://github.com/dstructs/matrix) which have been reshaped (e.g., [fliplr](https://github.com/compute-io/fliplr), [flipud](https://github.com/compute-io/flipud), [transpose](https://github.com/compute-io/transpose), etc).
+*	[Matrices](https://github.com/dstructs/matrix) are views on top of typed arrays. While the relation between subscripts and indices appears straightforward in the example above, this may not necessarily hold true for [matrices](https://github.com/dstructs/matrix) which have been reshaped (e.g., [fliplr](https://github.com/compute-io/fliplr), [flipud](https://github.com/compute-io/flipud), [transpose](https://github.com/compute-io/transpose), etc).
 
 
 ## Examples
@@ -78,8 +78,8 @@ mat = matrix( data, [100,100], 'int8' );
 
 idx = new Array( 100 );
 for ( k = 0; k < idx.length; k++ ) {
-	i = Math.round( Math.random()*100 );
-	j = Math.round( Math.random()*100 );
+	i = Math.round( Math.random()*99 );
+	j = Math.round( Math.random()*99 );
 	idx[ k ] = sub2ind( mat, i, j );
 }
 
