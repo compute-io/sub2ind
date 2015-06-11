@@ -65,7 +65,33 @@ idx = sub2ind( mat, 2, 1 );
 	// returns null
 	```
 
-*	[Matrices](https://github.com/dstructs/matrix) are views on top of typed arrays. While the relation between subscripts and indices appears straightforward in the example above, this may not necessarily hold true for [matrices](https://github.com/dstructs/matrix) which have been reshaped (e.g., [fliplr](https://github.com/compute-io/fliplr), [flipud](https://github.com/compute-io/flipud), [transpose](https://github.com/compute-io/transpose), etc).
+*	[Matrices](https://github.com/dstructs/matrix) are views on top of typed arrays. While the relation between subscripts, indices, and the underlying storage appears straightforward in the example above, this may not necessarily hold true for [matrices](https://github.com/dstructs/matrix) which have been reshaped (e.g., [fliplr](https://github.com/compute-io/fliplr), [flipud](https://github.com/compute-io/flipud), [transpose](https://github.com/compute-io/transpose), etc).
+
+	``` javascript
+	var fliplr = require( 'compute-fliplr' );
+
+	var data = new Int8Array( 6 );
+	for ( var i = 0; i < data.length; i++ ) {
+		data[ i ] = i*10;
+	}
+	var mat = matrix( data, [3,2], 'int8' );
+	/*
+	    Matrix       Subscripts     Indices    Storage
+
+	    [  0 10      [ a00 a01      [ 0 1      [ 0 1
+    A =   20 30   =>   a10 a11   =>   2 3   =>   2 3
+	      40 50 ]      a20 a21 ]      4 5 ]      4 5 ]
+	*/
+
+	var lr = fliplr( mat );
+	/*
+	    Matrix       Subscripts     Indices    Storage
+
+	    [ 10  0      [ a00 a01      [ 0 1      [ 1 0
+    A =   30 20   =>   a10 a11   =>   2 3   =>   3 2
+	      50 40 ]      a20 a21 ]      4 5 ]      5 4 ]
+	*/
+	```
 
 
 ## Examples
