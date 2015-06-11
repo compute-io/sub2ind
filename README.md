@@ -59,6 +59,12 @@ idx = sub2ind( mat, 2, 1 );
 ## Notes
 
 *	If provided subscripts which exceed the dimensions of the input data structure, the function returns `null`.
+
+	``` javascript
+	idx = sub2ind( mat, 53, 22 );
+	// returns null
+	```
+
 *	[Matrices](https://github.com/dstructs/matrix) are views on top of typed arrays. While the relation between subscripts and indices appears straightforward in the example above, this may not necessarily hold true for [matrices](https://github.com/dstructs/matrix) which have been reshaped (e.g., [fliplr](https://github.com/compute-io/fliplr), [flipud](https://github.com/compute-io/flipud), [transpose](https://github.com/compute-io/transpose), etc).
 
 
