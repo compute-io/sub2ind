@@ -88,7 +88,7 @@ idx = sub2ind( mat, 2, 1 );
 	    Matrix       Subscripts     Indices    Storage
 
 	    [ 10  0      [ a00 a01      [ 0 1      [ 1 0
-    A =   30 20   =>   a10 a11   =>   2 3   =>   3 2
+    B =   30 20   =>   a10 a11   =>   2 3   =>   3 2
 	      50 40 ]      a20 a21 ]      4 5 ]      5 4 ]
 	*/
 	```
